@@ -1,11 +1,9 @@
-import axios from 'axios';
+/**
+ * @format
+ */
 
-const cookieClick = async () => {
-  const response = await axios.post('http://localhost:5000/api/game/click');
-  setCookieCount(response.data.cookieCount);
-};
+import {AppRegistry} from 'react-native';
+import App from './App';
+import {name as appName} from './app.json';
 
-const refreshStats = async () => {
-  const response = await axios.get('http://localhost:5000/api/game/stats');
-  setCookieCount(response.data.cookieCount);
-};
+AppRegistry.registerComponent(appName, () => App);
