@@ -10,6 +10,7 @@ public class GameController : ControllerBase
     public IActionResult clickCookie()
     {
         cookieCount++;
+        Console.WriteLine("cookieCount:" +cookieCount);
         return Ok(new { cookieCount });
     }
 
