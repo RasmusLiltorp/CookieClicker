@@ -1,10 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
+namespace CookieClickerBackend;
 
 [Route("api/[controller]")]
 [ApiController]
+
+
 public class GameController : ControllerBase
 {
-    private static int cookieCount = 0;
+    public static int cookieCount = 0;
+    public int numberOfGrandmas;
 
     [HttpPost("click")]
     public IActionResult clickCookie()
@@ -12,6 +16,13 @@ public class GameController : ControllerBase
         cookieCount++;
         Console.WriteLine("cookieCount:" +cookieCount);
         return Ok(new { cookieCount });
+    }
+
+    [HttpPost("purchaseGrandma")]
+    public IActionResult buyGrandma()
+    {
+        int numberOfGrandmas = Shop.PurchaseGrandma();
+        return Ok(new { numberOfGrandmas });
     }
 
     [HttpGet("stats")]
